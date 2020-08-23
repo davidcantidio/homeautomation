@@ -3,11 +3,6 @@ import samsungctl
 import time
 
 
-def turn_off ():
-    with samsungctl.Remote(config) as remote:
-        remote.control((keys['power off key']))
-
-
 def netflix_on ():
     with samsungctl.Remote(config) as remote:
         remote.control((keys['return key']))
@@ -110,7 +105,7 @@ def play ():
 
 def play_from_beginning ():
     with samsungctl.Remote(config) as remote:
-        remote.control((keys['enter key']))
+        remote.control((keys['down key']))
         time.sleep(1)
         remote.control((keys['enter key']))
 
@@ -132,14 +127,11 @@ def zap_left():
     with samsungctl.Remote(config) as remote:
         for i in range(180):
             time.sleep(2)
-            remote.control((keys['left key']))from resources import keys, config
-import samsungctl
-import time
-
+            remote.control((keys['left key']))
 
 def turn_off ():
     with samsungctl.Remote(config) as remote:
-        remote.control((keys['power off key']))
+        remote.control((keys['poweroff key']))
 
 
 def netflix_on ():
