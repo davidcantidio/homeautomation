@@ -1,5 +1,3 @@
-import samsungctl
-
 config = {
     "host" : "192.168.0.19",
     "port" : 55000,
