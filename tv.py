@@ -25,35 +25,31 @@ def move(*args):
         c_row = 0
         c_col = 0
         for tuples in args:
-	    print(f"tuples são {tuples}")
             for item in tuples:
                 t_row = item[0]
                 t_col = item[1]
-		print (f"primeiro par row e col é {row} e {col}")
-                if c_row == t_row:
-		    print("estou na linha certa, vamos para a coluna")	
-
-                elif c_col == t_col:
-		    print("estou na coluna certa. decidindo se devo clicar...")
-
-	        elif c_row == t_row && c_col == t_col:
-		    print("decidi clicar")
-                    remote.control((keys['up key']))
-                    
-                else:
-                    coordinate_row = c_row - t_row
-                    i = 0
-                    while i <= abs(coordinate_row):
-                        remote.control((keys['up key']))
-                        time.sleep(0.5)
-                        i += 1
-                    coordinate_col = c_col - t_col
-                    i = 0
-                    while i <= abs(coordinate_row):
-                        remote.control((keys['up key']))
-                        time.sleep(0.5)
-                        i += 1
-
+                coordinate_row = c_row-t_row
+		coordinate_col = c_col-t_col
+                i = 0
+                while i <= abs(coordinate_row):
+		    if coordinate_row < 0:
+		    remote.control((keys['right key']))
+	            time.sleep(0.5)
+		    i += 1
+		    elif coordinate_row > 0:
+		    remote.control((keys['left key']))
+		    time.sleep(0.5)
+		    i += 1
+	        while i <= abs(coordinate_row):
+		    if coordinate_row < 0:
+		    remote.control((keys['right key']))
+		    time.sleep(0.5)
+		    i += 1
+		    elif coordinate_row > 0:
+		    remote.control((keys['left key']))
+		    time.sleep(0.5)
+		    i += 1
+		    remote.control((keys['enter key']))
 
 
 def netflix_on ():
