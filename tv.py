@@ -19,18 +19,27 @@ def get_char_map(film_name, char_list):
     return char_map
 
 
+
 def move(*args):
     with samsungctl.Remote(config) as remote:
         c_row = 0
         c_col = 0
         for tuples in args:
+	    print(f"tuples são {tuples}")
             for item in tuples:
                 t_row = item[0]
                 t_col = item[1]
+		print (f"primeiro par row e col é {row} e {col}")
                 if c_row == t_row:
-                    remote.control((keys['enter key']))
+		    print("estou na linha certa, vamos para a coluna")	
+
                 elif c_col == t_col:
-                    remote.control((keys['enter key']))
+		    print("estou na coluna certa. decidindo se devo clicar...")
+
+	        elif c_row == t_row && c_col == t_col:
+		    print("decidi clicar")
+                    remote.control((keys['up key']))
+                    
                 else:
                     coordinate_row = c_row - t_row
                     i = 0
